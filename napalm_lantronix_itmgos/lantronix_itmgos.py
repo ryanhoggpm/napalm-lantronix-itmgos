@@ -25,18 +25,18 @@ _SPLIT = re.compile(rf"^(.*?\S)\s{{2,}}({_KEY}:(?:\s.*)?)$")
 
 _EMPTY = ("[none]", "<none>", "none", "")
 
-# Lines the configuration export prints around the commands themselves.
+# Lines the configuration export prints before the first command. Only the preamble is
+# filtered, so a secret whose value happens to be "yes" can't shift the lines after it.
 _EXPORT_NOISE = re.compile(
     r"^(The configuration will be output.*|Do you want to continue\? \[no\].*|yes|"
     r"One moment while the file is generated.*)$"
 )
 
 # A prompted secret is exported as the command, then the value and its confirmation on
-# the next two lines: "set tacacs+ secret", "admin ftp password" and so on.
+# the next two lines: "set tacacs+ secret", "admin ftp password" and so on. Those two
+# lines are hidden whatever they contain.
 _PROMPTED_SECRET = re.compile(
-    r"^((?:set|admin) (?:[^\n]*(?:password|phrase|secret|key)|"
-    r"site (?:dialoutpassword|chapsecret) [^\n]+)\n)[^\n]*\n[^\n]*\n",
-    re.MULTILINE,
+    r"^(?:set|admin) (?:.*(?:password|phrase|secret|key)|site (?:dialoutpassword|chapsecret) \S.*?)\s*$"
 )
 _COMMUNITY = re.compile(r"\b((?:ro|rw|trap)community) (?:'[^'\n]*'|\"[^\"\n]*\"|\S+)")
 _TRAP_ACTION_COMMUNITY = re.compile(r"(\saction snmptrap\b[^\n]*?\scommunity) (?:'[^'\n]*'|\"[^\"\n]*\"|\S+)")
@@ -117,7 +117,17 @@ def _int(value: str | None) -> int:
 
 def sanitize_config(config: str) -> str:
     """Hide passwords, keys, secrets and SNMP communities in a configuration export."""
-    config = _PROMPTED_SECRET.sub(lambda m: f"{m.group(1)}<secret hidden>\n<secret hidden>\n", config)
+    lines = config.split("\n")
+    i = 0
+    while i < len(lines):
+        if _PROMPTED_SECRET.match(lines[i]):
+            for j in (i + 1, i + 2):
+                if j < len(lines):
+                    lines[j] = "<secret hidden>"
+            i += 3
+        else:
+            i += 1
+    config = "\n".join(lines)
     config = _COMMUNITY.sub(r"\1 '<secret hidden>'", config)
     config = _TRAP_ACTION_COMMUNITY.sub(r"\1 <secret hidden>", config)
     return _LOCALUSER_HASH.sub(r"\1 <secret hidden>", config)
@@ -336,7 +346,9 @@ class LantronixItmgosDriver(NetworkDriver):
                 "yes", expect_string=PROMPT_PATTERN, read_timeout=max(self.timeout, 120)
             )
         output = output.replace("\r\n", "\n").replace("\r", "\n")
-        lines = [line for line in output.split("\n") if not _EXPORT_NOISE.match(line)]
+        lines = output.split("\n")
+        while lines and (not lines[0].strip() or _EXPORT_NOISE.match(lines[0])):
+            lines.pop(0)
         return "\n".join(lines).strip("\n") + "\n"
 
     def get_config(

@@ -28,3 +28,16 @@ def test_open_without_netmiko_driver():
         pytest.raises(RuntimeError, match="lantronix_itmgos"),
     ):
         driver.open()
+
+
+def test_export_keeps_yes_values_after_the_preamble():
+    driver = LantronixItmgosDriver("slc", "admin", "pw")
+    driver.device = mock.Mock()
+    driver.device.send_command_timing.return_value = (
+        "The configuration will be output.\nDo you want to continue? [no] "
+    )
+    driver.device.send_command.return_value = "yes\nOne moment while the file is generated...\nset ldap bindpassword\nyes\nyes\nset ldap state enable\n"
+    assert driver.get_config()["running"] == "set ldap bindpassword\nyes\nyes\nset ldap state enable\n"
+    assert driver.get_config(sanitized=True)["running"] == (
+        "set ldap bindpassword\n<secret hidden>\n<secret hidden>\nset ldap state enable\n"
+    )
