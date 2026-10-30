@@ -1,0 +1,17 @@
+___Current Local Users Settings________________________________________________
+State: enabled
+Order: 1
+Complex Passwords: disabled
+Allow Reuse of Passwords: disabled
+Reuse History: 4
+Password Lifetime: 90 days
+Warning Period: 7 days
+Max Failed Login Attempts before Account is Locked: disabled
+Lockout Period: disabled 
+Multiple Sysadmin Web Logins: enabled
+Sysadmin Access Limited to Console Port: disabled
+
+Login        Lock Grp Data     Listen   Clear    Esc   Break Menu   Dialback
+============ ==== === ======== ======== ======== ===== ===== ====== ============
+sysadmin     no   Adm 1-32,U1, 1-32,U1, 1-32,U1, \x1bA \x1bB <none> N/<none>   
+1 user(s).  For complete information, use 'show localusers user <login>'.

@@ -1,0 +1,11 @@
+{
+    "chassis_id": "800000F40300005E005302",
+    "community": {
+        "community": {
+            "acl": "N/A",
+            "mode": "rw"
+        }
+    },
+    "contact": "contact",
+    "location": "location"
+}

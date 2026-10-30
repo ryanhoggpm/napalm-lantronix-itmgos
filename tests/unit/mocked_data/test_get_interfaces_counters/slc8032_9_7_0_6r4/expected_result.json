@@ -1,0 +1,30 @@
+{
+    "eth1": {
+        "rx_broadcast_packets": -1,
+        "rx_discards": -1,
+        "rx_errors": 0,
+        "rx_multicast_packets": 0,
+        "rx_octets": 12049199,
+        "rx_unicast_packets": 183600,
+        "tx_broadcast_packets": -1,
+        "tx_discards": -1,
+        "tx_errors": 0,
+        "tx_multicast_packets": -1,
+        "tx_octets": 4582163,
+        "tx_unicast_packets": 32884
+    },
+    "eth2": {
+        "rx_broadcast_packets": -1,
+        "rx_discards": -1,
+        "rx_errors": 0,
+        "rx_multicast_packets": 0,
+        "rx_octets": 0,
+        "rx_unicast_packets": 0,
+        "tx_broadcast_packets": -1,
+        "tx_discards": -1,
+        "tx_errors": 0,
+        "tx_multicast_packets": -1,
+        "tx_octets": 0,
+        "tx_unicast_packets": 0
+    }
+}

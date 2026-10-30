@@ -1,0 +1,20 @@
+___Current Ethernet Settings___________________________________________________
+IPv6: enabled
+Ethernet Port 1: DHCP enabled
+IP Address: 192.0.2.201  Subnet Mask: 255.255.255.0
+IPv6 Address: 2001:db8:0:1::2/64 Scope:Global
+IPv6 Address: fe80::200:5eff:fe00:5306/64 Scope:Link
+Mode: Auto-negotiate (Auto-negotiation: Yes, Speed: 1000Mb/s, Duplex: Full)
+MTU: 1500
+HW Address: 00:00:5e:00:53:06
+Multicast Group Address: 239.255.255.251
+Multicast Group Address: 224.0.0.1
+Link State: Up
+Ethernet Counters:
+  Rx Bytes: 12049199
+  Rx Packets: 183600
+  Rx Errors: 0
+  Rx Multicast: 0
+  Tx Bytes: 4582163
+  Tx Packets: 32884
+  Tx Errors: 0

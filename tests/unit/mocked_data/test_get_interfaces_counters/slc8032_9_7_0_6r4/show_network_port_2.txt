@@ -1,0 +1,18 @@
+___Current Ethernet Settings___________________________________________________
+IPv6: enabled
+Ethernet Port 2: DHCP enabled
+IP Address: <none>  Subnet Mask: <none>
+IPv6 Address: <none>
+Mode: Auto-negotiate (Auto-negotiation: Yes, Speed: Unknown!, Duplex: Half)
+MTU: 1500
+HW Address: 00:00:5e:00:53:07
+Multicast Group Address: 224.0.0.1
+Link State: Down
+Ethernet Counters:
+  Rx Bytes: 0
+  Rx Packets: 0
+  Rx Errors: 0
+  Rx Multicast: 0
+  Tx Bytes: 0
+  Tx Packets: 0
+  Tx Errors: 0

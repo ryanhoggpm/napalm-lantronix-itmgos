@@ -1,0 +1,46 @@
+One moment while the file is generated...
+set network port 1 state static ipaddr 192.0.2.200 mask 255.255.255.0
+set network port 1 mode auto mtu 1500
+set network host slc-01 domain example.net
+set ntp state enable localserverid 1 192.0.2.123
+set ntp localserverid 1 keyindex 1 hash disable
+set vpn xauthpassword
+
+
+set vpn key
+fakevpnkey
+fakevpnkey
+set services requiresshpublickey disable
+set services smtppassword
+
+
+set snmp state enable v1 disable v2c enable v3 disable
+set snmp rocommunity 'fakero01' rwcommunity 'fakerw01' trapcommunity public
+set snmp v3ropassword
+fakev3pass
+fakev3pass
+set localusers complexpasswords disable
+set localusers edit sysadmin group admin dataports 1-16
+set localusers password sysadmin enc $6$fakesalt$fakehash
+set localusers state enable
+set ldap bindpassword
+
+
+set radius server 1 secret
+
+
+set tacacs+ secret
+faketacacs
+faketacacs
+set deviceport port 1 name router-01 baud 9600
+set deviceport port 1 chapsecret
+
+
+set site chapsecret branch-01
+fakechap
+fakechap
+set events action trap-noc action snmptrap host 192.0.2.11 community fakecomm
+admin ftp password
+
+
+admin web banner "Authorized users only"

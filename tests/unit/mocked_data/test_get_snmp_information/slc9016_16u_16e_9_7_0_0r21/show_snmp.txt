@@ -1,0 +1,52 @@
+___Current SNMP Settings_______________________________________________________
+Agent: enabled                              v1/v2c RO Community: community
+v1 : disabled                               v1/v2c RW Community: community
+v2c: enabled                                v1/v2c Trap Community: public
+v3 : disabled                               v3 Security: Auth/No Encrypt
+Enable TLS: disabled/10161                  v3 Encryption: DES
+Traps: disabled                             v3 Authentication: MD5 
+Trap Version: v2c                           v3 RO User: snmpuser 
+Traps over TLS: disabled/10162              v3 RO Password: ********
+Engine Id: 800000F40300005E005302           v3 RO Passphrase: <none>   
+NMS #1: 192.0.2.11                          v3 RW User: snmprwuser 
+NMS #2: <none>                              v3 RW Password: ********** 
+Trap/Alarm Delay:   60 seconds              v3 RW Passphrase: <none> 
+Traps Source IPv4 Address: None             v3 Trap User: snmptrapuser 
+Traps Source IPv6 Address: None             v3 Trap Password: ************ 
+                                            v3 Trap Passphrase: <none>
+Location: location
+Contact: contact
+
+Traps sent: coldStart (1.3.6.1.6.3.1.1.5.1)
+            linkDown (1.3.6.1.6.3.1.1.5.3)
+            linkUp (1.3.6.1.6.3.1.1.5.4)
+            authenticationFailure (1.3.6.1.6.3.1.1.5.5)
+            slcEventPowerSupply (1.3.6.1.4.1.244.1.1.0.1)
+            slcEventSysadminPassword (1.3.6.1.4.1.244.1.1.0.2)
+            slcEventSLCShutdown (1.3.6.1.4.1.244.1.1.0.3)
+            slcEventDevicePortData (1.3.6.1.4.1.244.1.1.0.4)
+            slcEventDevicePortSLMData (1.3.6.1.4.1.244.1.1.0.5)
+            slcEventDevicePortSLMConfig (1.3.6.1.4.1.244.1.1.0.6)
+            slcEventDevicePortDeviceLowTemp (1.3.6.1.4.1.244.1.1.0.7)
+            slcEventDevicePortDeviceHighTemp (1.3.6.1.4.1.244.1.1.0.8)
+            slcEventDevicePortDeviceLowHumidity (1.3.6.1.4.1.244.1.1.0.9)
+            slcEventDevicePortDeviceHighHumidity (1.3.6.1.4.1.244.1.1.0.10)
+            slcEventDevicePortDeviceError (1.3.6.1.4.1.244.1.1.0.11)
+            slcEventUSBAction (1.3.6.1.4.1.244.1.1.0.14)
+            slcEventInternalTemp (1.3.6.1.4.1.244.1.1.0.13)
+            slcEventDevicePortError (1.3.6.1.4.1.244.1.1.0.15)
+            slcEventNoDialToneAlarm (1.3.6.1.4.1.244.1.1.0.17)
+            slcEventRPMAction (1.3.6.1.4.1.244.1.1.0.18)
+            slcEventPingHostFails (1.3.6.1.4.1.244.1.1.0.19)
+            slcEventDevicePortDeviceContactChanged (1.3.6.1.4.1.244.1.1.0.20)
+            slcEventSFPAction (1.3.6.1.4.1.244.1.1.0.21)
+            slcEventDevicePortAction (1.3.6.1.4.1.244.1.1.0.22)
+            slcEventNetworkFailover (1.3.6.1.4.1.244.1.1.0.23)
+            slcNetworkVPNTunnelAction (1.3.6.1.4.1.244.1.1.0.24)
+            slcEventDHCPServer (1.3.6.1.4.1.244.1.1.0.27)
+            slcEventIntrusionDetection (1.3.6.1.4.1.244.1.1.0.28)
+            slcEventCellular (1.3.6.1.4.1.244.1.1.0.29)
+            slcEventResourceUtilization (1.3.6.1.4.1.244.1.1.0.30)
+            slcEventPowerOutletStateChange (1.3.6.1.4.1.244.1.1.0.31)
+            slcEventFactoryDefaultButton (1.3.6.1.4.1.244.1.1.0.32)
+Traps Sent/Fail: 2/0, Recv/Trans packets: 2928055/2919363

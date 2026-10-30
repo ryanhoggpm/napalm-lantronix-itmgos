@@ -1,0 +1,13 @@
+{
+    "fqdn": "SLC8032-01",
+    "hostname": "SLC8032-01",
+    "interface_list": [
+        "eth1",
+        "eth2"
+    ],
+    "model": "SLC8032",
+    "os_version": "9.7.0.6R4",
+    "serial_number": "0080A3000002",
+    "uptime": 101280.0,
+    "vendor": "Lantronix"
+}

@@ -1,0 +1,15 @@
+{
+    "fqdn": "SLC9016-16U-16E-01",
+    "hostname": "SLC9016-16U-16E-01",
+    "interface_list": [
+        "eth1",
+        "eth2",
+        "eth3",
+        "eth4"
+    ],
+    "model": "SLC9016-16U-16E",
+    "os_version": "9.7.0.0R21",
+    "serial_number": "0080A3000001",
+    "uptime": 154140.0,
+    "vendor": "Lantronix"
+}

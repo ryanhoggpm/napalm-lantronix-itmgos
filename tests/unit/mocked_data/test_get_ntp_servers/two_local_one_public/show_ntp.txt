@@ -1,0 +1,32 @@
+___Current NTP Settings________________________________________________________
+NTP: enabled
+Synchronize via: Broadcast from NTP Server
+Poll NTP Server: Local Server
+Server(s) received from DHCP: None
+Local Server #1: 192.0.2.123
+ Authentication: disabled, Key Index: 1, Key Format: ASCII, Key: <not set>
+Local Server #2: 198.51.100.123
+ Authentication: disabled, Key Index: 1, Key Format: ASCII, Key: <not set>
+Local Server #3: <none>
+ Authentication: disabled, Key Index: 1, Key Format: ASCII, Key: <not set>
+Local Server #4: <none>
+ Authentication: disabled, Key Index: 1, Key Format: ASCII, Key: <not set>
+Local Server #5: <none>
+ Authentication: disabled, Key Index: 1, Key Format: ASCII, Key: <not set>
+Local Server #6: <none>
+ Authentication: disabled, Key Index: 1, Key Format: ASCII, Key: <not set>
+Public Server: 0.pool.ntp.org (random)
+Available Public Servers - NTP Pool: 0.pool.ntp.org (random)
+                           Australia: ntp2.tpg.com.au (198.51.100.12)
+                           Brazil: c.ntp.br (198.51.100.13)
+                           Canada: time.nrc.ca (198.51.100.14)
+                           China: t2.hshh.org (198.51.100.15)
+                           France: ntp.duckcorp.org (198.51.100.16)
+                           Russia: ntp.xland.ru (198.51.100.17)
+                           UK: ntp3.tcpd.net (198.51.100.18)
+                           US/Arizona: ntp1.linocomm.net (198.51.100.19)
+                           US/New Jersey: tick.jrc.us (198.51.100.20)
+                           US/Texas: ntp.fwwds.com (198.51.100.21)
+                           Switzerland: clock.tix.ch (198.51.100.22)
+Source IPv4 Address: None
+Source IPv6 Address: None

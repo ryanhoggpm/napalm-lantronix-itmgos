@@ -1,0 +1,13 @@
+{
+    "fqdn": "EMG7504-01",
+    "hostname": "EMG7504-01",
+    "interface_list": [
+        "eth1",
+        "eth2"
+    ],
+    "model": "EMG751001",
+    "os_version": "9.7.0.0R3",
+    "serial_number": "0080A3000003",
+    "uptime": 111900.0,
+    "vendor": "Lantronix"
+}
