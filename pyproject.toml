@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=69"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,6 +7,8 @@ name = "napalm-lantronix-itmgos"
 version = "0.1.0"
 description = "NAPALM driver for Lantronix IT Management Gateway OS (SLC 9000, SLC 8000, EMG, SLB)"
 requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
 dependencies = [
     "napalm>=5.0",
     # The lantronix_itmgos driver is on Netmiko develop (ktbyers/netmiko#3909), after 4.8.0.
@@ -25,3 +27,7 @@ line-length = 110
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[[tool.mypy.overrides]]
+module = ["napalm.*"]
+ignore_missing_imports = true
