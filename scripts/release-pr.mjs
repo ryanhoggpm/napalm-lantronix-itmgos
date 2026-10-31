@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* global process, console */
 // Release automation from CHANGELOG.md (Keep a Changelog format). No dependencies.
 //
 //   node scripts/release-pr.mjs [--date YYYY-MM-DD] [--dependabot prs.json] [--body body.md] [--dry-run]
@@ -30,6 +29,10 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { execFileSync } from 'node:child_process'
+import process from 'node:process'
+
+// Output goes through process, so ESLint passes under browser or Node globals alike.
+const say = (s) => process.stdout.write(`${s}\n`)
 
 const SEMVER = /^(\d+)\.(\d+)\.(\d+)$/
 
@@ -197,10 +200,10 @@ function main() {
   const root = process.cwd()
   const cfg = config(root)
   const current = readVersion(cfg.versionFiles[0], readFileSync(join(root, cfg.versionFiles[0]), 'utf8'))
-  if (args.current) return console.log(current)
+  if (args.current) return say(current)
   if (args['ci-inputs']) {
     for (const k of Object.keys(cfg.ciDispatchInputs)) if (!/^[A-Za-z0-9_-]+$/.test(k)) throw new Error(`bad CI input name: ${k}`)
-    return console.log(Object.entries(cfg.ciDispatchInputs).map(([k, v]) => `-f ${k}=${String(v).replace(/[^A-Za-z0-9_.-]/g, '')}`).join(' '))
+    return say(Object.entries(cfg.ciDispatchInputs).map(([k, v]) => `-f ${k}=${String(v).replace(/[^A-Za-z0-9_.-]/g, '')}`).join(' '))
   }
   const changelog = readFileSync(join(root, 'CHANGELOG.md'), 'utf8')
 
@@ -214,7 +217,7 @@ function main() {
     const notes = notesFor(changelog, version)
     if (!notes) throw new Error(`CHANGELOG.md has no section for ${version}`)
     if (args.notes) writeFileSync(args.notes, `${notes}\n`)
-    console.log(notes)
+    say(notes)
     return
   }
 
@@ -223,7 +226,7 @@ function main() {
   const prevTagged = execFileSync('git', ['-C', root, 'tag', '--list', `v${current}`], { encoding: 'utf8' }).trim() !== ''
   const result = plan(changelog, current, date, repoUrl(root), prs, cfg.dependabotDirs, prevTagged)
   if (!result) {
-    console.log('none')
+    say('none')
     return
   }
   if (!args['dry-run']) {
@@ -246,14 +249,14 @@ function main() {
         `## ${result.version}\n\n${result.section}\n`,
     )
   }
-  console.log(result.version)
+  say(result.version)
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   try {
     main()
   } catch (e) {
-    console.error(`release-pr: ${e.message}`)
+    process.stderr.write(`release-pr: ${e.message}\n`)
     process.exit(1)
   }
 }
