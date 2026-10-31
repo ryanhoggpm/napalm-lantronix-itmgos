@@ -4,5 +4,10 @@ Versions follow [Semantic Versioning](https://semver.org/). Add each user-visibl
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-10-31
+
 ### Added
 - First release. A read-only NAPALM community driver for Lantronix IT Management Gateway OS (SLC 9000, SLC 8000, EMG 7500 and 8500, SLB), connecting over SSH through Netmiko's `lantronix_itmgos` driver.
+
+[Unreleased]: https://github.com/ryanhoggpm/napalm-lantronix-itmgos/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/ryanhoggpm/napalm-lantronix-itmgos/releases/tag/v0.1.0
