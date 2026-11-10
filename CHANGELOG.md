@@ -4,6 +4,9 @@ Versions follow [Semantic Versioning](https://semver.org/). Add each user-visibl
 
 ## [Unreleased]
 
+### Changed
+- Requires Python 3.11 or later, the same as the Netmiko versions that include the `lantronix_itmgos` driver.
+
 ## [0.1.0] - 2026-10-31
 
 ### Added

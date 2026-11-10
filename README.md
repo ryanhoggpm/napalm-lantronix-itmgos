@@ -6,7 +6,7 @@ The driver is read-only. It connects over SSH through Netmiko's `lantronix_itmgo
 
 ## Requirements
 
-- Python 3.10 or later
+- Python 3.11 or later
 - NAPALM 5.0 or later
 - Netmiko with the `lantronix_itmgos` driver. It's merged on Netmiko's `develop` branch ([ktbyers/netmiko#3909](https://github.com/ktbyers/netmiko/pull/3909)) and will ship in the first release after 4.8.0. Until then, install Netmiko from `develop`.
 

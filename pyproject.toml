@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "napalm-lantronix-itmgos"
 version = "0.1.0"
 description = "NAPALM driver for Lantronix IT Management Gateway OS (SLC 9000, SLC 8000, EMG, SLB)"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 dependencies = [
